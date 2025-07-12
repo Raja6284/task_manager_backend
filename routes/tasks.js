@@ -105,8 +105,13 @@
 import express from "express";
 import Task from "../models/Task.js";
 import auth from "../middleware/auth.js";
+import cors from "cors";
 
 const router = express.Router();
+
+router.use(cors());
+router.use(express.json());
+
 
 // Create a task
 router.post("/", auth, async (req, res) => {
